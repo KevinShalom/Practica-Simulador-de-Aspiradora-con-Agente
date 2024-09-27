@@ -5,10 +5,10 @@ class SimuladorAspiradoraConPenalizacion:
         self.filas = filas
         self.columnas = columnas
         self.matriz = self.generar_entorno()
-        self.posicion_aspiradora = [0, 0]  # Posición inicial en [fila, columna]
+        self.posicion_aspiradora = [0, 0]  # Posicion inicial en [fila, columna]
         self.casillas_sucias = sum([fila.count('S') for fila in self.matriz])
         self.movimientos = 0
-        self.puntuacion = 0  # Puntuación del agente (penalizada por movimiento)
+        self.puntuacion = 0  # Puntuacion del agente (penalizada por movimiento)
 
     def generar_entorno(self):
         # 'L' para limpio, 'S' para sucio, 'V' para vacío
@@ -32,9 +32,9 @@ class SimuladorAspiradoraConPenalizacion:
             for j, celda in enumerate(fila):
                 print(f'[{i},{j}:{celda}]', end=" ")
             print()
-        print(f"\nPosición actual de la aspiradora: {self.posicion_aspiradora}")
+        print(f"\nPosicion actual de la aspiradora: {self.posicion_aspiradora}")
         print(f"Movimientos realizados: {self.movimientos}")
-        print(f"Puntuación actual del agente (con penalización): {self.puntuacion}\n")
+        print(f"Puntuacion actual del agente (con penalizacion): {self.puntuacion}\n")
 
     def mover(self, direccion):
         fila, columna = self.posicion_aspiradora
@@ -90,9 +90,9 @@ class AgenteReactivoConPenalizacion:
             self.simulador.imprimir_matriz()
             self.actuar()
         print("¡Todas las casillas sucias han sido limpiadas!")
-        print(f"Puntuación final del agente (con penalización): {self.simulador.puntuacion}")
+        print(f"Puntuación final del agente (con penalizacion): {self.simulador.puntuacion}")
 
-# Ejemplo de simulación con penalización por movimiento
+# Ejemplo de simulación con penalizacion por movimiento
 def simular_agente_con_penalizacion_en_varias_configuraciones(num_simulaciones, filas, columnas):
     puntuaciones = []
     for i in range(num_simulaciones):
@@ -102,9 +102,9 @@ def simular_agente_con_penalizacion_en_varias_configuraciones(num_simulaciones, 
         agente.ejecutar()
         puntuaciones.append(simulador.puntuacion)
     
-    # Calcular la configuración media global
+    # Calcular la configuracion media global
     puntuacion_media = sum(puntuaciones) / num_simulaciones
-    print(f"\nPuntuación media global (con penalización) tras {num_simulaciones} simulaciones: {puntuacion_media}")
+    print(f"\nPuntuacion media global (con penalizacion) tras {num_simulaciones} simulaciones: {puntuacion_media}")
 
-# Ejecutar el agente en múltiples configuraciones con penalización
+# Ejecutar el agente en multiples configuraciones con penalizacion
 simular_agente_con_penalizacion_en_varias_configuraciones(3, 5, 5)
